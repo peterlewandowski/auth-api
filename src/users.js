@@ -97,18 +97,18 @@ exports.getUSers = (req, res) => {
         user.password = undefined;
         return user;
       });
-      res
-        .send({
+      res.send({
           success: true,
           message: "Users returned",
           users
         })
-        .catch((err) =>
+      })
+        .catch((err) => {
+
           res.status(500).send({
             success: false,
             message: err.message,
             error: err,
           })
-        );
-    });
+        });
 };
